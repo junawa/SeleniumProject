@@ -1,4 +1,10 @@
 target/
+allure-results/
+allure-report/
+.allure/
+screenshots/
+*.local.properties
+*.secret.properties
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
