@@ -18,7 +18,7 @@ public final class LoginPage extends BasePage {
 
     public LoginPage open(final String baseUrl) {
         driver.get(baseUrl);
-        waitForPageLoad();
+        waitForElement(LOGIN_BUTTON);
         return this;
     }
 

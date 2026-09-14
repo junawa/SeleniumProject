@@ -1,8 +1,10 @@
 package com.saucedemo.framework.driver;
 
+import java.time.Duration;
 import java.util.Locale;
 import java.util.Objects;
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,6 +16,7 @@ import org.openqa.selenium.edge.EdgeOptions;
  */
 public final class DriverFactory {
 
+    private static final Duration PAGE_LOAD_TIMEOUT = Duration.ofSeconds(30);
     private static final ThreadLocal<WebDriver> DRIVER = new ThreadLocal<>();
 
     private DriverFactory() {
@@ -24,7 +27,9 @@ public final class DriverFactory {
             throw new IllegalStateException("A WebDriver is already assigned to this thread.");
         }
 
-        DRIVER.set(createBrowser(browser, headless));
+        final WebDriver driver = createBrowser(browser, headless);
+        driver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT);
+        DRIVER.set(driver);
     }
 
     public static WebDriver getDriver() {
@@ -61,6 +66,7 @@ public final class DriverFactory {
 
     private static ChromeOptions createChromeOptions(final boolean headless) {
         final ChromeOptions options = new ChromeOptions();
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
         if (headless) {
             options.addArguments("--headless=new", "--window-size=1920,1080",
                     "--no-sandbox", "--disable-dev-shm-usage");
@@ -72,6 +78,7 @@ public final class DriverFactory {
 
     private static EdgeOptions createEdgeOptions(final boolean headless) {
         final EdgeOptions options = new EdgeOptions();
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
         if (headless) {
             options.addArguments("--headless=new", "--window-size=1920,1080",
                     "--no-sandbox", "--disable-dev-shm-usage");
