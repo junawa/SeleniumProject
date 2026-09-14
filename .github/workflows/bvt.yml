@@ -1,0 +1,26 @@
+name: BVT
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  bvt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - name: Run BVT
+        run: mvn --batch-mode clean test -Dsuite=bvt -Dheadless=true
+      - name: Upload test evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: bvt-results
+          path: |
+            target/surefire-reports/
+            target/allure-results/

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Automation defects",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*(No WebDriver|Unsupported browser|Configuration file).*"
+  },
+  {
+    "name": "Environment or infrastructure issues",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*(UnknownHost|Connection refused|timed out).*"
+  }
+]

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="SauceDemo BVT" verbose="1">
+<suite name="SauceDemo BVT" verbose="1" parallel="none">
+    <listeners>
+        <listener class-name="com.saucedemo.framework.listeners.TestListener"/>
+    </listeners>
     <test name="BVT tests">
         <packages>
             <package name="tests.bvt"/>
