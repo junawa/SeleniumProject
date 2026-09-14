@@ -79,7 +79,7 @@ Configuration files live under `src/test/resources/config`.
 
 ```properties
 baseUrl=https://www.saucedemo.com/
-browser=chrome
+browser=edge
 timeout=10
 headless=false
 apiBaseUri=https://jsonplaceholder.typicode.com
