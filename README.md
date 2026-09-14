@@ -1,4 +1,15 @@
 # SauceDemo Selenium Automation Framework
+# Allure Report
+<img width="726" height="522" alt="Allure Report" src="https://github.com/user-attachments/assets/2923b9c0-69e4-4667-9782-b943ee470b99" />
+
+# Github Actions
+<img width="943" height="419" alt="Github Actions" src="https://github.com/user-attachments/assets/c5769946-ecbb-4664-8cb7-14177906b66d" />
+
+# Jenkins
+<img width="940" height="410" alt="Jenkins" src="https://github.com/user-attachments/assets/93ccc9ab-8aad-49eb-8a78-e7678a03ba26" />
+
+# SauceDemo
+<img width="947" height="490" alt="SauceDemo" src="https://github.com/user-attachments/assets/0b7ddbf2-f7c3-4093-ad00-8c52da696413" />
 
 A portfolio-quality Java automation framework for SauceDemo UI and API testing. It uses Selenium, TestNG, REST Assured, Maven, Allure, SLF4J/Logback, Page Objects, typed JSON test data, and CI pipelines.
 
