@@ -62,7 +62,8 @@ public final class DriverFactory {
     private static ChromeOptions createChromeOptions(final boolean headless) {
         final ChromeOptions options = new ChromeOptions();
         if (headless) {
-            options.addArguments("--headless=new", "--window-size=1920,1080");
+            options.addArguments("--headless=new", "--window-size=1920,1080",
+                    "--no-sandbox", "--disable-dev-shm-usage");
         } else {
             options.addArguments("--start-maximized");
         }
@@ -72,7 +73,8 @@ public final class DriverFactory {
     private static EdgeOptions createEdgeOptions(final boolean headless) {
         final EdgeOptions options = new EdgeOptions();
         if (headless) {
-            options.addArguments("--headless=new", "--window-size=1920,1080");
+            options.addArguments("--headless=new", "--window-size=1920,1080",
+                    "--no-sandbox", "--disable-dev-shm-usage");
         } else {
             options.addArguments("--start-maximized");
         }
