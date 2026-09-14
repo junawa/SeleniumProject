@@ -25,6 +25,12 @@ pipeline {
         always {
             junit allowEmptyResults: true, testResults: 'target/surefire-reports/testng-results.xml'
             archiveArtifacts allowEmptyArchive: true, artifacts: 'target/allure-results/**,target/site/allure-maven/**'
+            publishHTML(target: [
+                reportDir: 'target/site/allure-maven',
+                reportFiles: 'index.html',
+                reportName: 'Allure Report',
+                keepAll: true
+            ])
         }
     }
 }
