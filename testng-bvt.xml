@@ -3,6 +3,7 @@
 <suite name="SauceDemo BVT" verbose="1" parallel="none">
     <listeners>
         <listener class-name="com.saucedemo.framework.listeners.TestListener"/>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
     </listeners>
     <test name="BVT tests">
         <packages>

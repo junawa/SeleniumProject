@@ -3,6 +3,7 @@
 <suite name="SauceDemo E2E" verbose="1" parallel="classes" thread-count="2">
     <listeners>
         <listener class-name="com.saucedemo.framework.listeners.TestListener"/>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
     </listeners>
     <test name="End-to-end tests">
         <packages>

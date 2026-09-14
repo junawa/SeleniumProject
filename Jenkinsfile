@@ -46,9 +46,10 @@ pipeline {
 
     post {
         always {
-            junit allowEmptyResults: true, testResults: 'target/surefire-reports/testng-results.xml'
+            junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
             archiveArtifacts allowEmptyArchive: true, artifacts: 'target/allure-results/**,target/site/allure-maven/**'
             publishHTML(target: [
+                allowMissing: true,
                 reportDir: 'target/site/allure-maven',
                 reportFiles: 'index.html',
                 reportName: 'Allure Report',
