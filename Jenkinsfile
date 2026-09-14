@@ -9,7 +9,7 @@ pipeline {
 
     parameters {
         choice(name: 'SUITE', choices: ['auto', 'bvt', 'smoke', 'regression', 'e2e', 'api'], description: '"auto" = bvt on PRs, smoke on branch pushes')
-        choice(name: 'BROWSER', choices: ['chrome', 'edge'], description: 'Browser')
+        choice(name: 'BROWSER', choices: ['edge', 'chrome'], description: 'Browser')
         choice(name: 'ENVIRONMENT', choices: ['local', 'qa', 'staging'], description: 'Target environment')
         booleanParam(name: 'HEADLESS', defaultValue: true, description: 'Run Chrome headlessly')
     }
