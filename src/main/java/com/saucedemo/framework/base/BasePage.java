@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.Select;
 /** Reusable, non-business-specific browser interactions for page objects. */
 public abstract class BasePage {
 
+    private static final int NAVIGATION_ATTEMPTS = 2;
     protected final WebDriver driver;
     protected final WaitUtils waits;
 
@@ -60,6 +61,23 @@ public abstract class BasePage {
 
     protected void waitForPageLoad() {
         waits.untilPageReady();
+    }
+
+    /**
+     * Opens a page, retrying once when a remote browser renderer times out during navigation.
+     */
+    protected void navigateTo(final String url) {
+        for (int attempt = 1; attempt <= NAVIGATION_ATTEMPTS; attempt++) {
+            try {
+                driver.get(url);
+                return;
+            } catch (TimeoutException exception) {
+                if (attempt == NAVIGATION_ATTEMPTS) {
+                    throw exception;
+                }
+            }
+        }
+        throw new IllegalStateException("Navigation retry loop did not run.");
     }
 
     protected void selectDropdownByVisibleText(final By locator, final String text) {
